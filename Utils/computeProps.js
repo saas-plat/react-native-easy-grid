@@ -1,5 +1,8 @@
 var React = require('react');
-import ReactNativePropRegistry from 'react-native/Libraries/Renderer/src/renderers/native/ReactNativePropRegistry';
+import {Platform} from 'react-native';
+var ReactNativePropRegistry = Platform.OS === 'web'? 
+	'react-native-web/dist/modules/ReactNativePropRegistry':
+	'react-native/Libraries/Renderer/src/renderers/native/ReactNativePropRegistry';
 var _ = require('lodash');
 
 module.exports = function(incomingProps, defaultProps) {
